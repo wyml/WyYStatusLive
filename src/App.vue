@@ -8,7 +8,7 @@
         <v-btn icon @click="$vuetify.theme.dark = !$vuetify.theme.dark">
           <v-icon>{{ $vuetify.theme.dark?'mdi-brightness-7':'mdi-brightness-4' }}</v-icon>
         </v-btn>
-        <v-btn icon href>
+        <v-btn icon href="https://github.com/wyml/WyYStatusLive" target="_blank">
           <v-icon>mdi-github-face</v-icon>
         </v-btn>
       </v-app-bar>
