@@ -19,10 +19,16 @@ const _axios = axios.create(config);
 _axios.interceptors.request.use(
 
   function (config) {
-    config.data = Object.assign(config.data, {
-      api_key: process.env.VUE_APP_API_KEY
-    });
-    //.console.log(config, process.env.VUE_APP_API_KEY);
+    if (config.url == 'RSS') {
+      config.url = process.env.VUE_APP_RSS_URL;
+    } else {
+      config.data = Object.assign(config.data, {
+        api_key: process.env.VUE_APP_API_KEY
+      });
+    }
+
+
+    window.console.log(config);
     // Do something before request is sent
     return config;
   },

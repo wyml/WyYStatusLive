@@ -27,14 +27,14 @@
                     <span class="ml-5">暂停监控：{{ monitors.stop }}</span>
                   </v-col>
                 </v-row>
-                <v-row>
+                <!-- <v-row>
                   <v-col cols="12">
                     <div class="headline">最近一次故障：</div>
                     <div
                       class="body-1"
                     >It was recorded (for the monitor 十载北林BLOG) on 2020-02-11 18:22:38 and the downtime lasted for 0 hrs, 0 mins.</div>
                   </v-col>
-                </v-row>
+                </v-row>-->
               </v-card-text>
             </v-card>
           </v-hover>
@@ -221,6 +221,11 @@ export default {
           }
           this.loading = false;
         });
+
+      this.axios.get("RSS").then(res => {
+        var xmlDoc = new DOMParser().parseFromString(res.data, "text/xml");
+        window.console.log(xmlDoc);
+      });
     },
     timer() {
       return window.setInterval(() => {
